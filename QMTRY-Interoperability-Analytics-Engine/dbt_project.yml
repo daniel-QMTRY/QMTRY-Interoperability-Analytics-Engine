@@ -1,0 +1,16 @@
+name: 'qmtry_interop_analytics'
+version: '1.0'
+config-version: 2
+
+profile: 'qmtry_duckdb'
+
+model-paths: ['models']
+target-path: 'target'
+
+models:
+  +materialized: table
+  qmtry_interop_analytics:
+    staging:
+      +schema: staging
+    marts:
+      +schema: marts

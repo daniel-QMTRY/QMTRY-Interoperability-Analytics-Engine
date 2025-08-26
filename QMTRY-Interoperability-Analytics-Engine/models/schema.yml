@@ -1,0 +1,25 @@
+version: 2
+
+models:
+  - name: patients_clean
+    columns:
+      - name: patient_id
+        tests: [not_null, unique]
+      - name: dob
+        tests: [not_null]
+  - name: meds_clean
+    columns:
+      - name: patient_id
+        tests: [not_null]
+      - name: administered
+        tests:
+          - accepted_values:
+              values: [0,1]
+  - name: stars_kpis
+    columns:
+      - name: member_count
+        tests: [not_null]
+  - name: cfo_kpis
+    columns:
+      - name: administrations
+        tests: [not_null]
